@@ -1,0 +1,6 @@
+venv/
+.idea/
+db/*.sql
+db/*.db
+logs/
+instance/

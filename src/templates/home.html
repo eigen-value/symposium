@@ -1,0 +1,79 @@
+{% extends 'layout.html' %}
+
+{% block sidebar %}
+  {% if side_index %}
+      {% import "includes/_sidebar.html" as sidebar_macro %}
+      {% set options = [['Symposium', 'symposium-header'],
+          ['Description', 'symposium-description'],
+          ['Venue', 'symposium-venue']] %}
+      {{ sidebar_macro.sidebar(options) }}
+  {% endif %}
+{% endblock %}
+
+{% block body %}
+  <main>
+    <article class="page">
+
+      <header class="article-header">
+        <h1 class="entry-title" id="symposium-header">
+          <a class="anchor" href="#symposium-header"></a>
+          <span>H1 Symposium</span>
+        </h1>
+      </header>
+
+      <div class="content-wrapper">
+        <div class="article-content">
+          <section>
+            <div class="section-heading">
+              <div class="wrapper">
+                <div class="col-12 px-0">
+                  <h2 id="symposium-description">
+                    <a class="anchor" href="#symposium-description"></a>
+                    H2 Symposium description
+                  </h2>
+                  <p>p Symposium application lorem ipsum</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate iaculis tempus. Duis congue ante nec egestas hendrerit. Integer orci quam, lacinia et luctus sed, rhoncus vel risus. Mauris venenatis nisl eu ante mattis placerat. Maecenas egestas eu augue at ornare. Sed ac massa non nisi sollicitudin pharetra quis nec nisi. Phasellus luctus aliquet ligula, non gravida urna ullamcorper vitae. Duis et risus in est sollicitudin mollis. Cras et ante pretium, vehicula purus in, imperdiet risus. Morbi interdum ligula a ipsum mattis, congue iaculis lacus pulvinar. Ut aliquet quam tellus, vel ultrices orci efficitur ac. Mauris vel erat ac quam mollis facilisis ut sed ligula. Vestibulum nunc dolor, ultricies tristique velit vel, tempor imperdiet turpis. </p>
+                  <ul class="subheadings">
+                    <li class="mb-2">
+                      <span><strong>I. </strong>Proin turpis mauris;</span>
+                    </li>
+                    <li class="mb-2">
+                      <span><strong>II. </strong>dapibus vel convallis sed;</span>
+                    </li>
+                    <li class="mb-2">
+                      <span><strong>III. </strong>tempor fringilla diam;</span>
+                    </li>
+                    <li class="mb-2">
+                      <span><strong>IV. </strong>Cras sed orci ipsum;</span>
+                    </li>
+                    <li class="mb-2">
+                      <span><strong>V. </strong>Suspendisse quis rutrum mauris;</span>
+                    </li>
+                  </ul>
+
+                </div>
+                <div>
+                  <h2 id="symposium-venue">
+                      <a class="anchor" href="#symposium-venue"></a>
+                    H2 Venue
+                  </h2>
+                </div>
+                <div class="in-this-section">
+                  <div class="label col-2">In questa sezione</div>
+                  <div class=" border col-10"></div>
+                </div>
+                <div class="wp-block-columns is-style-sticky-right">
+                  <div class="wp-block-column">
+                    <h5>H5 Venue info section</h5>
+                    <p>Lorem ipsum</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </article>
+  </main>
+<!--    <div id="main" style="width: 600px;height:400px; display: none"></div>-->
+{% endblock %}

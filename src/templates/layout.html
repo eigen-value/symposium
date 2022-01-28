@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it">
+<link rel="shortcut icon" href="/static/images/favicon.ico">
+<head>
+  <meta charset="UTF-8">
+  <title>Symposium</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/symposium.css" />
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.1.2/dist/echarts.min.js" integrity="sha256-TI0rIaxop+pDlHNVI6kDCFvmpxNYUnVH/SMjknZ/W0Y=" crossorigin="anonymous"></script>
+</head>
+<body>
+  {% if navbar %}
+    {% include 'includes/_navbar.html' %}
+    {% block toolbar %}
+    {% endblock %}
+  {% endif %}
+
+  <div class="side-nav-wrapper">
+
+    {% block sidebar %}
+    {% endblock %}
+
+    <div class="container mt-3">
+      {% block body %}{% endblock %}
+  {#    {% include 'includes/_messages.html' %}#}
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script type="text/javascript" src="../static/js/functions.js"></script>
+  {% block js %}{% endblock %}
+  <footer class="site-footer">
+    <div class="row">
+      <div class="col-3">
+        <ul>
+          <li>
+            <a href="/info" data-track-note="footer-navigation">Info</a>
+          </li>
+          <li>
+            <a href="/info#contact" data-track-note="footer-navigation">Contatti</a>
+          </li>
+          <li>
+            <a href="/feedback" data-track-note="footer-navigation">Feedback</a>
+          </li>
+          <li>
+            <a href="/info/how-to-use-symposium" data-track-note="footer-navigation">Come usare</a>
+          </li>
+          <li>
+            <a href="/donate" data-track-note="footer-navigation">Donare</a>
+          </li>
+          <li>
+            <a href="/privacy-policy" data-track-note="footer-navigation">Privacy policy</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-3">
+        <ul>
+          <li>
+            <a href="/blog" data-track-note="footer-navigation">Ultime Pubblicazioni</a>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a href="https://twitter.com" data-track-note="footer-navigation">Twitter</a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com" data-track-note="footer-navigation">Facebook</a>
+          </li>
+          <li>
+            <a href="https://github.com/eigen-value" data-track-note="footer-navigation">GitHub</a>
+          </li>
+          <li>
+            <a href="/feed" data-track-note="footer-navigation">RSS Feed</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-3">
+        <div class="logos">
+          <img src="/static/images/logo.png" style="height: 50px; margin-right: 1rem" alt="SYMPOSIUM logo">
+        </div>
+      </div>
+      <div class="col">
+        <p>License: Symposium is completely open access and all work is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons BY license</a>. You have the permission to use, distribute, and reproduce in any medium, provided the source and authors are credited.</p>
+        <p>Please consult our full <a href="/about#legal">legal disclaimer</a>.</p>
+        <p>
+          <a href="https://www.wikipedia.com" data-track-note="footer-navigation">
+            <img src="/static/images/logo_login.png" alt="SYMPOSIUM login logo" loading="lazy" style="width: 30px; display: inline-block">
+          </a>
+          Symposium is a project by <a href="mailto:lucio.rossi75@gmail.com">Lucio Rossi </a>
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

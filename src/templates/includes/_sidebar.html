@@ -1,0 +1,23 @@
+{% macro sidebar(options) -%}
+  <link rel = "stylesheet" type = "text/css" href = "/static/css/sidebar.css" />
+  <!-- Sidebar -->
+  <nav id="sidebar" class="active">
+        <div class="row">
+          <div class="col-10 px-0">
+          <ul class="sidebar-nav list-unstyled components">
+            {% for option in options %}
+              <li class="mt-3">
+                <a href="#{{option[1]}}">{{option[0]}}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div class="col-2 px-1">
+          <button type="button" id="sidebarCollapse" class="btn">
+            <i class="fas fa-align-left"></i>
+          </button>
+        </div>
+        </div>
+      </nav>
+{% endmacro %}
