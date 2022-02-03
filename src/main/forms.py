@@ -5,7 +5,7 @@ from src.models import Participant, ParticipantTitle
 
 
 class SubscriptionForm(FlaskForm):
-    title = SelectField('Titolo', choices=[(member.value, member.value)     # name_.capitalize() can be used if enum names are to be shown
+    title = SelectField('Titolo', choices=[(name_, member.value)     # name_.capitalize() can be used if enum names are to be shown
                                            for name_, member in ParticipantTitle.__members__.items()])
     name = StringField('Nome', validators=[DataRequired()])
     surname = StringField('Cognome', validators=[DataRequired()])

@@ -27,7 +27,7 @@ def subscribe():
 
     form = SubscriptionForm()
     if form.validate_on_submit():
-        participant = Participant(title=form.title.data, username=form.name.data, surname=form.surname.data,
+        participant = Participant(title=form.title.data, name=form.name.data, surname=form.surname.data,
                                   institution=form.institution.data, email=form.email.data)
 
         db.session.add(participant)

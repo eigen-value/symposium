@@ -1,4 +1,4 @@
-Gent.mo {{ participant.title participant.surname }},
+Gent.mo {{ participant.title }} {{ participant.surname }},
 
 Con la presente si conferma la Vs. iscrizione alla conferenza in oggetto
 
