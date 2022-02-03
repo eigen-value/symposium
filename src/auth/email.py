@@ -4,7 +4,7 @@ from src.email_utils import send_email
 
 def send_password_reset_email(user):
     token = user.get_reset_password_token()
-    send_email('[ISPRA: CCD] Reimposta La tua Password',
+    send_email('{} Reimposta La tua Password'.format(current_app.config['EMAIL_SENDER_TEXT']),
                sender=current_app.config['ADMINS'][0],
                recipients=[user.email],
                text_body=render_template('email/reset_password.txt',

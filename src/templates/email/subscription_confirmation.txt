@@ -1,0 +1,6 @@
+Gent.mo {{ participant.title participant.surname }},
+
+Con la presente si conferma la Vs. iscrizione alla conferenza in oggetto
+
+Cordiali Saluti
+L'organizzazione

@@ -112,3 +112,32 @@ class Role(db.Model):
     def __repr__(self):
         return '<Role> {}>'.format(self.name)
 
+
+class ParticipantTitle(enum.Enum):
+    none = "None"
+    doctor = "Dr."
+    professor = "Prof."
+
+
+class Participant(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(Enum(ParticipantTitle))
+    name = db.Column(db.String(255), index=True, unique=True)
+    surname = db.Column(db.String(255), index=True, unique=True)
+    institution = db.Column(db.String(512), index=True, unique=True)
+    email = db.Column(db.String(120), index=True, unique=True)
+
+    def __repr__(self):
+        return '<Participant {} {}>'.format(self.name, self.surname)
+
+    def to_dict(self):
+        data = {
+            'id': self.id,
+            'title': self.title,
+            'name': self.name,
+            'surname': self.surname,
+            'institution': self.institution,
+            'email': self.email,
+        }
+
+        return data
