@@ -34,7 +34,7 @@ def subscribe():
         db.session.commit()
         flash('Iscrizione effettuata con successo')
         send_subscription_confirmation_email(participant=participant)
-        return redirect(url_for('home'))
+        return redirect(url_for('main.home'))
     else:
         participant = Participant.query.filter_by(email=form.email.data).first()
         if participant is not None:
