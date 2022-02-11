@@ -122,9 +122,9 @@ class ParticipantTitle(enum.Enum):
 class Participant(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(Enum(ParticipantTitle))
-    name = db.Column(db.String(255), index=True, unique=True)
-    surname = db.Column(db.String(255), index=True, unique=True)
-    institution = db.Column(db.String(512), index=True, unique=True)
+    name = db.Column(db.String(255), index=True)
+    surname = db.Column(db.String(255), index=True)
+    institution = db.Column(db.String(512), index=True)
     email = db.Column(db.String(120), index=True, unique=True)
 
     def __repr__(self):
