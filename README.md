@@ -28,3 +28,9 @@ Pull a new version and restart
 To use a test SMTP run the following command in terminal:
 
     python -m smtpd -n -c DebuggingServer localhost:25
+    
+###**Sending emails**
+If using SMTPS on port 465 remember to set in config:
+
+    MAIL_USE_TLS = 0
+    MAIL_USE_SSL = 1
