@@ -26,9 +26,10 @@ def create_app():
     mail.init_app(app)
     admin.init_app(app, RestrictedAdminIndexView())
 
-    from src.models import User, Role
+    from src.models import User, Role, Participant
     admin.add_view(RestrictedView(User, db.session))
     admin.add_view(RestrictedView(Role, db.session))
+    admin.add_view(RestrictedView(Participant, db.session))
 
     from src.errors import bp as errors_bp
     app.register_blueprint(errors_bp)
