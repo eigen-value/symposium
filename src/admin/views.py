@@ -13,7 +13,7 @@ class RestrictedAdminIndexView(AdminIndexView):
         return hasattr(current_user, 'is_super') and current_user.is_super()
 
     def inaccessible_callback(self, name, **kwargs):
-        return redirect(url_for("main.home"))
+        return redirect(url_for("auth.login"))
 
 
 class RestrictedView(ResponsiveModelView):
@@ -21,7 +21,7 @@ class RestrictedView(ResponsiveModelView):
         return hasattr(current_user, 'is_super') and current_user.is_super()
 
     def inaccessible_callback(self, name, **kwargs):
-        return redirect(url_for("main.home"))
+        return redirect(url_for("auth.login"))
 
 
 class ParticipantView(RestrictedView):

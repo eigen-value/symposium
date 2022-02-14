@@ -23,18 +23,17 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
+
+        {% if current_user.is_authenticated %}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Area Riservata
+            Utente
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            {% if current_user.is_authenticated %}
-              <a class="dropdown-item" href="/auth/logout">Esci</a>
-            {% else %}
-              <a class="dropdown-item" href="/auth/login">Entra</a>
-            {% endif %}
+            <a class="dropdown-item" href="/auth/logout">Esci</a>
           </div>
         </li>
+        {% endif %}
 
         <li class="nav-item" style="margin-left: auto">
           <div>
