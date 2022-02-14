@@ -4,7 +4,7 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_mail import Mail
 from flask_admin import Admin
-from src.admin.views import RestrictedAdminIndexView, RestrictedView
+from src.admin.views import RestrictedAdminIndexView, RestrictedView, ParticipantView
 from src.utils import setup_logs
 
 db = SQLAlchemy()
@@ -29,7 +29,7 @@ def create_app():
     from src.models import User, Role, Participant
     admin.add_view(RestrictedView(User, db.session))
     admin.add_view(RestrictedView(Role, db.session))
-    admin.add_view(RestrictedView(Participant, db.session))
+    admin.add_view(ParticipantView(Participant, db.session))
 
     from src.errors import bp as errors_bp
     app.register_blueprint(errors_bp)

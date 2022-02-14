@@ -1,4 +1,5 @@
-from flask_wtf import FlaskForm
+from flask_wtf import FlaskForm, RecaptchaField
+from flask_wtf.file import FileField, FileRequired, FileAllowed
 from wtforms import StringField, BooleanField, PasswordField, SubmitField, SelectField
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
 from src.models import Participant, ParticipantTitle
@@ -11,9 +12,11 @@ class SubscriptionForm(FlaskForm):
     surname = StringField('Cognome', validators=[DataRequired()])
     institution = StringField('Affiliazione', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
+    receipt = FileField('Caricare qui la ricevuta del versamento', validators=[FileRequired(), FileAllowed(['pdf'], "Solo file pdf")])
     submit = SubmitField('Iscriviti')
+    recaptcha = RecaptchaField()
 
     def validate_email(self, email):
-        user = Participant.query.filter_by(email=email.data).first()
-        if user is not None:
+        participant = Participant.query.filter_by(email=email.data).first()
+        if participant is not None:
             raise ValidationError('Indirizzo Email già presente.')

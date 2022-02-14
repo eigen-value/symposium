@@ -126,6 +126,8 @@ class Participant(db.Model):
     surname = db.Column(db.String(255), index=True)
     institution = db.Column(db.String(512), index=True)
     email = db.Column(db.String(120), index=True, unique=True)
+    approved_subscription = db.Column(db.Boolean, default=False)
+    receipt_location = db.Column(db.String(255), index=True, unique=True)
 
     def __repr__(self):
         return '<Participant {} {}>'.format(self.name, self.surname)
@@ -138,6 +140,8 @@ class Participant(db.Model):
             'surname': self.surname,
             'institution': self.institution,
             'email': self.email,
+            'approved_subscription': self.approved_subscription,
+            'receipt_location': self.receipt_location,
         }
 
         return data

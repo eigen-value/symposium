@@ -1,4 +1,4 @@
-from flask import redirect, url_for
+from flask import redirect, url_for, Markup
 from flask_login import current_user
 from flask_admin.contrib.sqla import ModelView
 from flask_admin import AdminIndexView
@@ -22,3 +22,16 @@ class RestrictedView(ResponsiveModelView):
 
     def inaccessible_callback(self, name, **kwargs):
         return redirect(url_for("main.home"))
+
+
+class ParticipantView(RestrictedView):
+    def _user_formatter(view, context, model, name):
+        if model.receipt_location:
+           markupstring = "<a href='../../%s'>%s</a>" % (model.receipt_location, model.receipt_location)
+           return Markup(markupstring)
+        else:
+           return ""
+
+    column_formatters = {
+        'receipt_location': _user_formatter
+    }
