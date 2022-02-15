@@ -24,6 +24,10 @@ class RestrictedView(ResponsiveModelView):
         return redirect(url_for("auth.login"))
 
 
+class UserView(RestrictedView):
+    form_excluded_columns = ['last_seen']
+
+
 class ParticipantView(RestrictedView):
     def _user_formatter(view, context, model, name):
         if model.receipt_location:
