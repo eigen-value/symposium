@@ -11,3 +11,14 @@ def send_subscription_confirmation_email(participant):
                                          participant=participant),
                html_body=render_template('email/subscription_confirmation.html',
                                          participant=participant))
+
+
+def send_custom_email(participant, subject, body):
+    send_email(('{}: {} - ' + subject).format(current_app.config['EMAIL_SENDER_TEXT'],
+                                                       current_app.config['CONFERENCE_NAME']),
+               sender=current_app.config['ADMINS'][0],
+               recipients=[participant.email],
+               text_body=render_template('email/custom.txt',
+                                         participant=participant, body=body),
+               html_body=render_template('email/custom.html',
+                                         participant=participant, body=body))

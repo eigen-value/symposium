@@ -1,0 +1,6 @@
+Gent.mo {{ participant.title.value }} {{ participant.surname }},
+
+{{ body }}
+
+Cordiali Saluti
+L'organizzazione

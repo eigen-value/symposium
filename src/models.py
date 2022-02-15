@@ -145,3 +145,17 @@ class Participant(db.Model):
         }
 
         return data
+
+
+participant_email = db.Table('participant_email',
+                     db.Column('participant_id', db.Integer, db.ForeignKey('participant.id'), primary_key=True),
+                     db.Column('email_id', db.Integer, db.ForeignKey('email.id'), primary_key=True)
+                     )
+
+
+class Email(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    receivers = db.relationship('Participant', secondary=participant_email, lazy='subquery',
+                            backref=db.backref('emails', lazy=True))
+    subject = db.Column(db.String(255))
+    body = db.Column(db.String(255))
