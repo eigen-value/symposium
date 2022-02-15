@@ -19,4 +19,4 @@ class SubscriptionForm(FlaskForm):
     def validate_email(self, email):
         participant = Participant.query.filter_by(email=email.data).first()
         if participant is not None:
-            raise ValidationError('Indirizzo Email già presente.')
+            raise ValidationError('Indirizzo Email già presente.  Se non si è ricevuta la notifica di avvenuta iscrizione si prega di contattare l\'organizzazione')

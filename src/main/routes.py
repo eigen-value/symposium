@@ -43,11 +43,11 @@ def subscribe():
 
         db.session.add(participant)
         db.session.commit()
-        flash('Iscrizione effettuata con successo')
         send_subscription_confirmation_email(participant=participant)
+        flash('Iscrizione effettuata con successo', 'success')
         return redirect(url_for('main.home'))
     else:
         participant = Participant.query.filter_by(email=form.email.data).first()
         if participant is not None:
-            flash("Indirizzo e-mail già presente. Se non si è ricevuta la notifica di avvenuta iscrizione si prega di contattare l'organizzazione")
+            flash("Indirizzo e-mail già presente.", 'warning')
     return render_template('subscribe.html', title='Subscribe', form=form)

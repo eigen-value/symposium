@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
   <link rel="stylesheet" type="text/css" href="/static/css/symposium.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/bootstrap_mods.css" />
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.1.2/dist/echarts.min.js" integrity="sha256-TI0rIaxop+pDlHNVI6kDCFvmpxNYUnVH/SMjknZ/W0Y=" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -24,7 +25,7 @@
 
     <div class="container mt-3">
       {% block body %}{% endblock %}
-  {#    {% include 'includes/_messages.html' %}#}
+      {% include 'includes/_messages.html' %}
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
