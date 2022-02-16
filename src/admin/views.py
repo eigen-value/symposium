@@ -27,6 +27,21 @@ class RestrictedView(ResponsiveModelView):
         return redirect(url_for("auth.login"))
 
 
+class AccommodationView(RestrictedView):
+    form_excluded_columns = ['guests']
+
+    form_overrides = {
+        'description': TextAreaField
+    }
+
+    form_widget_args = {
+        'description': {
+            'rows': 10,
+            'style': 'min-width:500px'
+        }
+    }
+
+
 class UserView(RestrictedView):
     form_excluded_columns = ['last_seen']
 

@@ -5,6 +5,7 @@ from flask_login import LoginManager
 from flask_mail import Mail
 from flask_admin import Admin
 from src.admin.views import RestrictedAdminIndexView, RestrictedView, ParticipantView, UserView, EmailView
+from src.admin.views import AccommodationView
 from src.utils import setup_logs
 
 db = SQLAlchemy()
@@ -30,7 +31,7 @@ def create_app():
 
     admin.add_view(UserView(User, db.session))
     admin.add_view(RestrictedView(Role, db.session))
-    admin.add_view(RestrictedView(Accommodation, db.session))
+    admin.add_view(AccommodationView(Accommodation, db.session))
     admin.add_view(ParticipantView(Participant, db.session))
     admin.add_view(EmailView(Email, db.session))
 
