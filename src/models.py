@@ -167,6 +167,7 @@ class Accommodation(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255))
     stars = db.Column(db.Integer)
+    website = db.Column(db.String(255))
     address = db.Column(db.String(255))
     description = db.Column(db.String(2048))
     guests = db.relationship("Participant", backref=db.backref("chosen_accommodation", lazy=True))

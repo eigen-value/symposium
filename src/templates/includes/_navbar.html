@@ -21,6 +21,9 @@
         <li class="nav-item {{'active' if request.path == '/subscribe' }}">
           <a class="nav-link" href="/subscribe">Iscriviti {%- if request.path == "/subscribe" %} <span class="sr-only">(current)</span> {% endif %}</a>
         </li>
+        <li class="nav-item {{'active' if request.path == '/accommodations' }}">
+          <a class="nav-link" href="/accommodations">Accommodations {%- if request.path == "/accommodations" %} <span class="sr-only">(current)</span> {% endif %}</a>
+        </li>
       </ul>
       <ul class="navbar-nav ml-auto">
 

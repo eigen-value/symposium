@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<h1>
+  Le nostre strutture convenzionate
+</h1>
+
+{% for accommodation in accommodations %}
+
+  <object data="/static/images/{{accommodation.name}}.png" type="image/png" style="height: 200px">
+    <img src="/static/images/H-logo.png" alt="{{accommodation.name}} logo image" style="height: 200px">
+  </object>
+  <h3> {{accommodation.name}} {{ '*' * accommodation.stars}} </h3>
+  <h5> {{accommodation.address}}</h5>
+  <h5><a href="{{accommodation.website}}"> {{accommodation.website}} </a></h5>
+  <p> {{accommodation.description}} </p>
+
+{% endfor %}
+
+{% endblock %}

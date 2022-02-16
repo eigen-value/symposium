@@ -53,3 +53,10 @@ def subscribe():
         if participant is not None:
             flash("Indirizzo e-mail già presente.", 'warning')
     return render_template('subscribe.html', title='Subscribe', form=form)
+
+@bp.route('/accommodations', methods=['GET'])
+def accommodations():
+
+    accommodations = Accommodation.query.all()
+    return render_template('accommodations.html', accommodations=accommodations)
+
