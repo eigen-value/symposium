@@ -1,5 +1,48 @@
 {% extends 'admin/master.html' %}
 
 {% block body %}
-  <p>Symposium app: Administration back-end</p>
+  <a href="../"> Ritorna alla home </a>
+  <h2>Symposium app: Administration back-end</h2>
+  <h3>Istruzioni per l'uso</h3>
+
+  <h4>Utenti e Ruoli</h4>
+  <p>
+    Solo gli utenti con ruolo di amministratore possono accedere a questo back end.
+    Per aggiungere altri utenti, questi dovranno prima registrarsi accedendo alla pagina di login e clickando su "registrati".
+    Successivamente, l'admin già presente dovrà accedere al back-end ed attribuire un ruolo di livello amministratore all'utente appena registratosi
+  </p>
+
+  <h4>Inserimento strutture ricettive</h4>
+  <p>
+    Le strutture ricettive possono essere aggiunte da questo pannello di amministrazione clickando sulla voce "Accommodation".
+    Le strutture aggiunte sasranno visibili fra le opzioni che i partecipanti avranno all'atto dell'iscrizione, se desiderano che venga effettuata per loro una prenotazione
+  </p>
+
+  <h4>Iscrizione dei partecipanti</h4>
+  <p>
+    All'atto dell'iscrizione i partecipanti dovranno fornire i loro dati personali, l'affiliazione, la ricevuta del versamento della fee e la propria preferenza relativamente alle prenotazioni alberghiere.
+    Se l'iscrizione va a buon fine il partecipante riceverà una mail automatizzata di conferma.
+  </p>
+
+  <h4>Perfezionamento dell'iscrizione</h4>
+  <p>
+    A seguito della ricezione delle ricevute di bonifico, si dovrà procedere manualmente ad approvare i singoli partecipanti.
+    Ciò è possibile farlo dalla voce "Participant" del menu. Nella colonnna "Receipt location" è possibile, clickando sul link, scaricare la singola ricevuta per i dovuti controlli.
+    Fatto ciò è possibile approvare l'iscrizione di un partecipante clikcando sull'icona della matita all'inizio del record e, nel pannello Edit che si apre clickare sulla spunta denominata "Approved subscription", confermando poi con il tasto "Save"
+  </p>
+
+  <h4>Invio mail</h4>
+  <p>
+    Se si desidera inviare una mail a un gruppo di partecipanti si può procedere così:
+    Clickare sulla voce Participant del menu e selezionare i partecipanti ai quali si vuole inviare la mail.
+    Selezionare "With selected" e successivamente l'azione "Send email", si verrà redirezionati all'editor di creazione "Email" dove la lista dei destinatari sarà già compilata con i nomi dei partecipanti scelti.
+    Inserire l'oggetto (subject) e il corpo del testo della mail (body) e clickare sul tasto "Save".
+    Nel corpo del testo non c'è bisogno di inserire l'intestazione (es. Gent.mo Prof. taldeitali) perchè ciò verrà fatto in automatico dal sistema
+  </p>
+
+  <h4>Scaricare la lista dei partecipanti</h4>
+  <p>
+    E' possibile ottenere la lista completa dei partecipanti con i relativi dati clickando sulla voce "Export" presente nella vista generale "Participant"
+  </p>
+
 {% endblock %}

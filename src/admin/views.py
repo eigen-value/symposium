@@ -48,6 +48,8 @@ class UserView(RestrictedView):
 
 class ParticipantView(RestrictedView, ActionsMixin):
 
+    can_export = True
+
     def __init__(self, model, session, name=None, category=None, endpoint=None, url=None, static_folder=None,
                  menu_class_name=None, menu_icon_type=None, menu_icon_value=None):
         super().__init__(model, session, name, category, endpoint, url, static_folder, menu_class_name, menu_icon_type,
