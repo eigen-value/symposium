@@ -128,6 +128,8 @@ class Participant(db.Model):
     email = db.Column(db.String(120), index=True, unique=True)
     approved_subscription = db.Column(db.Boolean, default=False)
     receipt_location = db.Column(db.String(255), index=True, unique=True)
+    needs_accommodation = db.Column(db.Boolean, default=False)
+    chosen_accommodation_id = db.Column(db.Integer, db.ForeignKey(name="chosen_accommodation_id", column='accommodation.id'))
 
     def __repr__(self):
         return '<Participant {} {}>'.format(self.name, self.surname)
@@ -159,3 +161,15 @@ class Email(db.Model):
                             backref=db.backref('emails', lazy=True))
     subject = db.Column(db.String(255))
     body = db.Column(db.String(255))
+
+
+class Accommodation(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255))
+    stars = db.Column(db.Integer)
+    address = db.Column(db.String(255))
+    description = db.Column(db.String(2048))
+    guests = db.relationship("Participant", backref=db.backref("chosen_accommodation", lazy=True))
+
+    def __repr__(self):
+        return '{}'.format(self.name)

@@ -39,6 +39,8 @@ def subscribe():
         receipt_location = '/'.join(['static', 'receipts', filename])
         participant = Participant(title=form.title.data, name=form.name.data, surname=form.surname.data,
                                   institution=form.institution.data, email=form.email.data,
+                                  needs_accommodation=form.needs_accommodation.data,
+                                  chosen_accommodation_id=form.chosen_accommodation.data,
                                   receipt_location=receipt_location)
 
         db.session.add(participant)

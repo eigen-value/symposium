@@ -26,10 +26,11 @@ def create_app():
     mail.init_app(app)
     admin.init_app(app, RestrictedAdminIndexView())
 
-    from src.models import User, Role, Participant, Email
+    from src.models import User, Role, Participant, Email, Accommodation
 
     admin.add_view(UserView(User, db.session))
     admin.add_view(RestrictedView(Role, db.session))
+    admin.add_view(RestrictedView(Accommodation, db.session))
     admin.add_view(ParticipantView(Participant, db.session))
     admin.add_view(EmailView(Email, db.session))
 
