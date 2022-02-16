@@ -1,4 +1,4 @@
-from flask_wtf import FlaskForm
+from flask_wtf import FlaskForm, RecaptchaField
 from wtforms import StringField, BooleanField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
 from src.models import User
@@ -18,6 +18,7 @@ class RegistrationForm(FlaskForm):
     password2 = PasswordField('Ripeti Password', validators=[DataRequired(),
                                        EqualTo('password')])
     submit = SubmitField('Registrati')
+    recaptcha = RecaptchaField()
 
     def validate_username(self, username):
         user = User.query.filter_by(username=username.data).first()
