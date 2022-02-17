@@ -20,7 +20,7 @@ class SubscriptionForm(FlaskForm):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.chosen_accommodation.choices = [(c.id, c.name) for c in Accommodation.query.all()]
+        self.chosen_accommodation.choices = [('', '')] + [(c.id, c.name) for c in Accommodation.query.all()]
 
     def validate_email(self, email):
         participant = Participant.query.filter_by(email=email.data).first()
